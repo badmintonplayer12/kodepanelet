@@ -19,3 +19,17 @@
 .lock-display--error .lock-display__icon {
   filter: drop-shadow(0 0 2rem rgb(239 68 68 / 45%));
 }
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .lock-display {
+    gap: 0.35rem;
+  }
+
+  .lock-display__icon {
+    font-size: clamp(3.2rem, 26vh, 5rem);
+  }
+
+  .lock-display__label {
+    font-size: clamp(1rem, 5vh, 1.4rem);
+  }
+}
