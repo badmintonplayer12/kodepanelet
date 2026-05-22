@@ -1,0 +1,23 @@
+.screen-frame {
+  display: grid;
+  gap: 1.4rem;
+  justify-items: center;
+  width: min(100%, 34rem);
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 1.5rem;
+  background: rgb(3 7 18 / 72%);
+  padding: clamp(1.25rem, 5vw, 2.5rem);
+  text-align: center;
+}
+
+.screen-frame h1 {
+  font-size: clamp(2rem, 9vw, 4rem);
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.screen-frame__lead {
+  color: rgb(247 247 251 / 78%);
+  margin: 0;
+}
