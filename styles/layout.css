@@ -2,13 +2,16 @@
   display: grid;
   min-height: 100vh;
   min-height: 100dvh;
+  place-content: center;
   place-items: center;
   padding: clamp(1rem, 4vw, 3rem);
+  width: 100%;
 }
 
 .setup-form {
   display: grid;
   gap: 1rem;
+  justify-items: center;
   width: min(100%, 22rem);
 }
 
