@@ -18,6 +18,16 @@
   color: #f7f7fb;
 }
 
+.button--hidden-reset {
+  height: 4rem;
+  opacity: 0;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 4rem;
+}
+
 .button:hover,
 .keypad__key:hover {
   transform: translateY(-1px);
