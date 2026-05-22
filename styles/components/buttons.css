@@ -1,18 +1,26 @@
 .button {
-  border: 0;
+  border: 1px solid rgb(250 204 21 / 22%);
   border-radius: 999px;
-  background: #f7f7fb;
+  background: linear-gradient(180deg, #facc15, #eab308);
+  box-shadow: 0 0 1.5rem rgb(250 204 21 / 24%);
   color: #070914;
   cursor: pointer;
-  font-weight: 800;
+  font-weight: 900;
+  letter-spacing: 0.08em;
   padding: 0.9rem 1.2rem;
   text-transform: uppercase;
 }
 
 .button--ghost {
-  border: 1px solid rgb(255 255 255 / 18%);
-  background: transparent;
+  border: 1px solid rgb(250 204 21 / 18%);
+  background: rgb(255 255 255 / 3%);
+  box-shadow: none;
   color: #f7f7fb;
+}
+
+.button:hover,
+.keypad__key:hover {
+  transform: translateY(-1px);
 }
 
 .button:focus-visible,
