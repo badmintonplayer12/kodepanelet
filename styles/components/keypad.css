@@ -31,3 +31,17 @@
     linear-gradient(180deg, rgb(239 68 68 / 28%), transparent),
     rgb(26 5 5 / 94%);
 }
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .keypad {
+    gap: 0.45rem;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: min(100%, 34rem);
+  }
+
+  .keypad__key {
+    aspect-ratio: 1.45;
+    border-radius: 0.7rem;
+    font-size: clamp(1rem, 6vh, 1.45rem);
+  }
+}
