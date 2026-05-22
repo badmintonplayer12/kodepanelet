@@ -41,3 +41,24 @@
   line-height: 1.6;
   margin: 0;
 }
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .screen-frame {
+    gap: 0.65rem;
+    max-width: min(44rem, 94vw);
+    padding: 0.85rem 1rem;
+  }
+
+  .screen-frame h1 {
+    border-width: 0.12rem;
+    font-size: clamp(1.25rem, 6vh, 2.1rem);
+    letter-spacing: 0.08em;
+    padding: 0.18em 0.3em;
+    transform: none;
+  }
+
+  .screen-frame__lead {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+}
