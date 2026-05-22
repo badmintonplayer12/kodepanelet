@@ -1,7 +1,7 @@
 const SOUND_FILES = Object.freeze({
   key: './assets/sounds/key-press.mp3',
-  success: './assets/sounds/success-unlock.mp3',
-  error: './assets/sounds/error-alarm.mp3',
+  success: './assets/sounds/Correct-01.mp3',
+  error: './assets/sounds/Wrong-01.mp3',
 });
 
 export function playKeyTone() {
