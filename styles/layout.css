@@ -12,12 +12,15 @@
   display: grid;
   gap: 1rem;
   justify-items: center;
+  margin-inline: auto;
   width: min(100%, 22rem);
 }
 
 .setup-form__input,
 .code-display {
-  width: 100%;
+  display: block;
+  width: min(100%, 22rem);
+  margin-inline: auto;
   border: 1px dashed rgb(250 204 21 / 35%);
   border-radius: 0.35rem;
   background: rgb(0 0 0 / 48%);
@@ -45,5 +48,6 @@
   .code-display {
     letter-spacing: 0.16em;
     padding: 0.65rem;
+    width: min(100%, 34rem);
   }
 }
