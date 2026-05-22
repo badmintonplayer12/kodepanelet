@@ -16,12 +16,18 @@
 }
 
 .screen-frame h1 {
+  border: 0.18rem solid currentColor;
   color: #facc15;
+  display: inline-block;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: clamp(2rem, 9vw, 4rem);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
+  line-height: 0.95;
   margin: 0;
-  text-shadow: 0 0 1rem rgb(250 204 21 / 22%);
+  padding: 0.25em 0.35em;
+  text-shadow: 0.08em 0.08em 0 rgb(0 0 0 / 55%);
   text-transform: uppercase;
+  transform: rotate(-1.5deg);
 }
 
 .screen-frame__lead {
