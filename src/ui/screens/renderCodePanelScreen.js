@@ -3,7 +3,7 @@ import { createKeypad } from '../components/createKeypad.js';
 import { createScreenFrame } from '../components/createScreenFrame.js';
 
 export function renderCodePanelScreen({ enteredCode, onKeyPress }) {
-  const frame = createScreenFrame('Sikkerhetslås', 'Tast inn koden for å åpne døren.');
+  const frame = createScreenFrame('Sikkerhetslås');
   const display = createElement('output', {
     className: 'code-display',
     text: maskCode(enteredCode),
