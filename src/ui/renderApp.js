@@ -20,5 +20,9 @@ function createScreen(appRoot, state, actions) {
   }
 
   const resultType = state.screen === SCREENS.success ? RESULT_TYPES.success : RESULT_TYPES.error;
-  return renderResultScreen({ resultType, onReset: actions.resetAttempt });
+  return renderResultScreen({
+    resultType,
+    onResetAttempt: actions.resetAttempt,
+    onResetGame: actions.resetGame,
+  });
 }
