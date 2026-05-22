@@ -1,4 +1,4 @@
-import { playKeyTone, playResultTone } from '../audio/soundPlayer.js';
+import { playKeyTone, playResultTone, preloadResultSounds } from '../audio/soundPlayer.js';
 import { isCorrectCode } from '../core/codeValidator.js';
 import { createInitialState, withStatePatch } from './appState.js';
 import { renderApp } from '../ui/renderApp.js';
@@ -41,6 +41,7 @@ export function createApp(appRoot) {
 
   return {
     start() {
+      preloadResultSounds();
       renderApp(appRoot, state, actions);
     },
   };
