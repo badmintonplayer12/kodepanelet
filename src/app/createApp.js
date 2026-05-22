@@ -24,6 +24,10 @@ export function createApp(appRoot) {
     resetAttempt() {
       update({ enteredCode: '', screen: SCREENS.codePanel });
     },
+
+    resetGame() {
+      update(createInitialState());
+    },
   };
 
   function handleKeyPress(key) {
