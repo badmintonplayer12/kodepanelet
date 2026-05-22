@@ -4,7 +4,7 @@
   justify-items: center;
   margin-inline: auto;
   max-width: 34rem;
-  width: 100%;
+  width: min(100%, 34rem);
   border: 1px solid rgb(250 204 21 / 18%);
   border-radius: 1.5rem;
   background:
@@ -20,19 +20,18 @@
 .screen-frame h1 {
   border: 0.18rem solid currentColor;
   color: #facc15;
-  display: inline-block;
+  display: block;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: clamp(1.65rem, 8vw, 4rem);
-  letter-spacing: clamp(0.06em, 1.6vw, 0.16em);
+  font-size: clamp(1.45rem, 7vw, 3.25rem);
+  letter-spacing: clamp(0.03em, 1vw, 0.1em);
   line-height: 0.95;
   margin: 0 auto;
   max-width: 100%;
-  padding: 0.25em 0.35em;
+  padding: 0.25em 0.32em;
   text-align: center;
   text-shadow: 0.08em 0.08em 0 rgb(0 0 0 / 55%);
   text-transform: uppercase;
   transform: rotate(-1deg);
-  overflow-wrap: anywhere;
 }
 
 .screen-frame__lead {
@@ -47,6 +46,7 @@
     gap: 0.65rem;
     max-width: min(44rem, 94vw);
     padding: 0.85rem 1rem;
+    width: min(100%, 44rem);
   }
 
   .screen-frame h1 {
