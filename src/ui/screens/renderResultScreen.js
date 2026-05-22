@@ -3,25 +3,26 @@ import { createElement } from '../dom.js';
 import { createLockDisplay } from '../components/createLockDisplay.js';
 import { createScreenFrame } from '../components/createScreenFrame.js';
 
-export function renderResultScreen({ resultType, onResetAttempt, onResetGame }) {
+export function renderResultScreen({ resultType, onResetAttempt }) {
   const isSuccess = resultType === RESULT_TYPES.success;
   const title = isSuccess ? 'Låsen er åpen!' : 'Feil kode!';
   const text = isSuccess ? 'Agentene klarte oppdraget.' : 'Låsen er fortsatt stengt.';
   const frame = createScreenFrame(title, text);
-  const resetButton = createResetButton(isSuccess, onResetAttempt, onResetGame);
 
   frame.classList.add(`screen-frame--${resultType}`);
-  frame.append(createLockDisplay(resultType), resetButton);
+  frame.append(createLockDisplay(resultType));
+
+  if (!isSuccess) {
+    frame.append(createResetAttemptButton(onResetAttempt));
+  }
+
   return frame;
 }
 
-function createResetButton(isSuccess, onResetAttempt, onResetGame) {
-  const className = isSuccess ? 'button button--hidden-reset' : 'button';
-  const text = isSuccess ? 'Tilbake til kodevalg' : 'Prøv igjen';
-  const action = isSuccess ? onResetGame : onResetAttempt;
-  const button = createElement('button', { className, text });
+function createResetAttemptButton(onResetAttempt) {
+  const button = createElement('button', { className: 'button', text: 'Prøv igjen' });
 
   button.type = 'button';
-  button.addEventListener('click', action);
+  button.addEventListener('click', onResetAttempt);
   return button;
 }
