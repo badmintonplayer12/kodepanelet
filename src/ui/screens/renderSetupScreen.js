@@ -4,7 +4,7 @@ import { createFullscreenButton } from '../components/createFullscreenButton.js'
 import { createScreenFrame } from '../components/createScreenFrame.js';
 
 export function renderSetupScreen({ appRoot, onCodeSet }) {
-  const frame = createScreenFrame('Kodepanelet', 'Velg spillkoden før agentene starter.');
+  const frame = createScreenFrame('Sikkerhetslås', 'Velg spillkoden før agentene starter.');
   const form = createElement('form', { className: 'setup-form' });
   const input = createElement('input', { className: 'setup-form__input' });
   const button = createElement('button', { className: 'button', text: 'Start oppdraget' });
