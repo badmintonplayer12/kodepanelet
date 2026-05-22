@@ -1,24 +1,42 @@
 body {
-  background: linear-gradient(145deg, #03040a 0%, #07111f 52%, #120612 100%);
+  background:
+    radial-gradient(circle at 50% 8%, rgb(220 38 38 / 18%), transparent 18rem),
+    radial-gradient(circle at 15% 85%, rgb(14 165 233 / 12%), transparent 22rem),
+    linear-gradient(145deg, #02030a 0%, #06101f 48%, #15050a 100%);
 }
 
 .app-shell {
   position: relative;
 }
 
+.app-shell::before {
+  content: 'AGENT X // LOCKDOWN';
+  position: fixed;
+  top: 1.1rem;
+  left: 50%;
+  color: rgb(250 204 21 / 72%);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.38em;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
 .app-shell::after {
   content: '';
   position: fixed;
   inset: 1rem;
-  border: 1px solid rgb(255 255 255 / 8%);
+  border: 1px solid rgb(250 204 21 / 18%);
   border-radius: 1.5rem;
+  box-shadow: inset 0 0 3rem rgb(239 68 68 / 12%);
   pointer-events: none;
 }
 
 .screen-frame--success {
-  border-color: rgb(34 197 94 / 45%);
+  border-color: rgb(34 197 94 / 55%);
 }
 
 .screen-frame--error {
-  border-color: rgb(239 68 68 / 45%);
+  border-color: rgb(239 68 68 / 65%);
 }
