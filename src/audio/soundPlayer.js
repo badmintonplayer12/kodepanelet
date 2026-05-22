@@ -4,6 +4,13 @@ const SOUND_FILES = Object.freeze({
   error: './assets/sounds/Wrong-01.mp3',
 });
 
+const soundCache = new Map();
+
+export function preloadResultSounds() {
+  preloadSound(SOUND_FILES.success);
+  preloadSound(SOUND_FILES.error);
+}
+
 export function playKeyTone() {
   playSoundFile(SOUND_FILES.key).catch(() => playFallbackTone(360, 0.06));
 }
@@ -15,10 +22,26 @@ export function playResultTone(resultType) {
   playSoundFile(filePath).catch(() => playFallbackTone(fallbackFrequency, 0.25));
 }
 
+function preloadSound(filePath) {
+  const audio = getCachedAudio(filePath);
+  audio.load();
+}
+
 function playSoundFile(filePath) {
-  const audio = new Audio(filePath);
-  audio.volume = 0.8;
+  const audio = getCachedAudio(filePath);
+  audio.currentTime = 0;
   return audio.play();
+}
+
+function getCachedAudio(filePath) {
+  if (!soundCache.has(filePath)) {
+    const audio = new Audio(filePath);
+    audio.preload = 'auto';
+    audio.volume = 0.8;
+    soundCache.set(filePath, audio);
+  }
+
+  return soundCache.get(filePath);
 }
 
 function playFallbackTone(frequency, durationSeconds) {
