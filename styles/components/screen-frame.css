@@ -1,10 +1,10 @@
 .screen-frame {
   display: grid;
-  gap: 1.4rem;
+  gap: clamp(1.15rem, 3vh, 1.8rem);
   justify-items: center;
   margin-inline: auto;
-  max-width: 34rem;
-  width: min(100%, 34rem);
+  max-width: 40rem;
+  width: min(100%, 40rem);
   border: 1px solid rgb(250 204 21 / 18%);
   border-radius: 1.5rem;
   background:
@@ -13,7 +13,7 @@
   box-shadow:
     0 0 3rem rgb(0 0 0 / 45%),
     inset 0 0 2rem rgb(255 255 255 / 3%);
-  padding: clamp(1.25rem, 5vw, 2.5rem);
+  padding: clamp(1.4rem, 4vh, 3rem);
   text-align: center;
 }
 
@@ -22,7 +22,7 @@
   color: #facc15;
   display: block;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: clamp(1.45rem, 7vw, 3.25rem);
+  font-size: clamp(1.65rem, min(8vw, 7vh), 3.6rem);
   letter-spacing: clamp(0.03em, 1vw, 0.1em);
   line-height: 0.95;
   margin: 0 auto;
@@ -44,9 +44,9 @@
 @media (orientation: landscape) and (max-height: 520px) {
   .screen-frame {
     gap: 0.65rem;
-    max-width: min(44rem, 94vw);
+    max-width: min(46rem, 94vw);
     padding: 0.85rem 1rem;
-    width: min(100%, 44rem);
+    width: min(100%, 46rem);
   }
 
   .screen-frame h1 {
