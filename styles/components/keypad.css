@@ -3,7 +3,7 @@
   gap: clamp(0.75rem, 2vh, 1rem);
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-inline: auto;
-  width: min(100%, 26rem);
+  width: min(100%, 30rem);
 }
 
 .keypad__key {
@@ -37,7 +37,7 @@
   .keypad {
     gap: 0.45rem;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    width: min(100%, 36rem);
+    width: min(100%, 38rem);
   }
 
   .keypad__key {
