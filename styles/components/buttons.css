@@ -1,0 +1,23 @@
+.button {
+  border: 0;
+  border-radius: 999px;
+  background: #f7f7fb;
+  color: #070914;
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.9rem 1.2rem;
+  text-transform: uppercase;
+}
+
+.button--ghost {
+  border: 1px solid rgb(255 255 255 / 18%);
+  background: transparent;
+  color: #f7f7fb;
+}
+
+.button:focus-visible,
+.keypad__key:focus-visible,
+.setup-form__input:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 3px;
+}
