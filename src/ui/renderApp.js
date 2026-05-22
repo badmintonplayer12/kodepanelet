@@ -1,5 +1,6 @@
 import { SCREENS } from '../app/screens.js';
 import { RESULT_TYPES } from '../core/resultTypes.js';
+import { createHiddenResetButton } from './components/createHiddenResetButton.js';
 import { clearElement } from './dom.js';
 import { renderCodePanelScreen } from './screens/renderCodePanelScreen.js';
 import { renderResultScreen } from './screens/renderResultScreen.js';
@@ -7,7 +8,13 @@ import { renderSetupScreen } from './screens/renderSetupScreen.js';
 
 export function renderApp(appRoot, state, actions) {
   clearElement(appRoot);
-  appRoot.append(createScreen(appRoot, state, actions));
+  appRoot.append(createScreenWithHiddenReset(appRoot, state, actions));
+}
+
+function createScreenWithHiddenReset(appRoot, state, actions) {
+  const screen = createScreen(appRoot, state, actions);
+  screen.append(createHiddenResetButton(actions.resetGame));
+  return screen;
 }
 
 function createScreen(appRoot, state, actions) {
@@ -20,9 +27,5 @@ function createScreen(appRoot, state, actions) {
   }
 
   const resultType = state.screen === SCREENS.success ? RESULT_TYPES.success : RESULT_TYPES.error;
-  return renderResultScreen({
-    resultType,
-    onResetAttempt: actions.resetAttempt,
-    onResetGame: actions.resetGame,
-  });
+  return renderResultScreen({ resultType, onResetAttempt: actions.resetAttempt });
 }
