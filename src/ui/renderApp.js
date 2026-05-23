@@ -23,7 +23,11 @@ function createScreen(appRoot, state, actions) {
   }
 
   if (state.screen === SCREENS.codePanel) {
-    return renderCodePanelScreen({ enteredCode: state.enteredCode, onKeyPress: actions.pressKey });
+    return renderCodePanelScreen({
+      enteredCode: state.enteredCode,
+      remainingSeconds: state.remainingSeconds,
+      onKeyPress: actions.pressKey,
+    });
   }
 
   const resultType = state.screen === SCREENS.success ? RESULT_TYPES.success : RESULT_TYPES.error;
