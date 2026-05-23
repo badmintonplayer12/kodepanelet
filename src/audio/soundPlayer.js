@@ -2,13 +2,19 @@ const SOUND_FILES = Object.freeze({
   key: './assets/sounds/key-press.mp3',
   success: './assets/sounds/Correct-01.mp3',
   error: './assets/sounds/Wrong-01.mp3',
+  alarm: './assets/sounds/alarm.mp3',
 });
 
 const soundCache = new Map();
 
-export function preloadResultSounds() {
+export function preloadAppSounds() {
   preloadSound(SOUND_FILES.success);
   preloadSound(SOUND_FILES.error);
+  preloadSound(SOUND_FILES.alarm);
+}
+
+export function playAlarmTone() {
+  playSoundFile(SOUND_FILES.alarm).catch(() => playFallbackTone(120, 0.6));
 }
 
 export function playKeyTone() {
