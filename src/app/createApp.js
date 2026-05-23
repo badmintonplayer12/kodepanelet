@@ -1,4 +1,4 @@
-import { playAlarmTone, playKeyTone, playResultTone, preloadAppSounds } from '../audio/soundPlayer.js';
+import { playAlarmTone, playKeyTone, playResultTone, preloadAppSounds, stopAllSounds } from '../audio/soundPlayer.js';
 import { isCorrectCode } from '../core/codeValidator.js';
 import { createInstallPromptController } from '../pwa/installPrompt.js';
 import { shouldShowIosInstallHint } from '../pwa/installHint.js';
@@ -56,6 +56,7 @@ export function createApp(appRoot) {
 
     resetGame() {
       timer.stop();
+      stopAllSounds();
       clearGameState();
       state = createInitialState();
       renderApp(appRoot, state, actions);
