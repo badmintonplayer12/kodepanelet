@@ -20,7 +20,12 @@ function createScreenWithHiddenReset(appRoot, state, actions) {
 
 function createScreen(appRoot, state, actions) {
   if (state.screen === SCREENS.setup) {
-    return renderSetupScreen({ appRoot, onCodeSet: actions.setCode });
+    return renderSetupScreen({
+      appRoot,
+      canInstallApp: state.canInstallApp,
+      onCodeSet: actions.setCode,
+      onInstallApp: actions.installApp,
+    });
   }
 
   if (state.screen === SCREENS.codePanel) {
