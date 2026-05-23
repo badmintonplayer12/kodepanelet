@@ -3,11 +3,12 @@ import { isCorrectCode } from '../core/codeValidator.js';
 import { createCountdownTimer } from '../timer/countdownTimer.js';
 import { TIMER_CONFIG, TIMER_START_MODES } from '../timer/timerConfig.js';
 import { createInitialState, withStatePatch } from './appState.js';
+import { clearGameState, loadGameState, saveGameState } from './persistedGameState.js';
 import { renderApp } from '../ui/renderApp.js';
 import { SCREENS } from './screens.js';
 
 export function createApp(appRoot) {
-  let state = createInitialState();
+  let state = loadGameState() ?? createInitialState();
   const timer = createCountdownTimer({
     durationSeconds: TIMER_CONFIG.durationSeconds,
     onTick: handleTimerTick,
@@ -16,6 +17,7 @@ export function createApp(appRoot) {
 
   function update(patch) {
     state = withStatePatch(state, patch);
+    saveGameState(state);
     renderApp(appRoot, state, actions);
   }
 
@@ -35,7 +37,8 @@ export function createApp(appRoot) {
     },
 
     resetGame() {
-      timer.reset(TIMER_CONFIG.durationSeconds);
+      timer.stop();
+      clearGameState();
       state = createInitialState();
       renderApp(appRoot, state, actions);
     },
@@ -76,6 +79,7 @@ export function createApp(appRoot) {
       remainingSeconds: TIMER_CONFIG.durationSeconds,
       isTimerRunning: false,
       hasTimerStarted: false,
+      timerEndsAt: null,
     });
   }
 
