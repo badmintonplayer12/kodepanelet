@@ -3,4 +3,5 @@ export const SCREENS = Object.freeze({
   codePanel: 'code-panel',
   success: 'success',
   error: 'error',
+  alarm: 'alarm',
 });
