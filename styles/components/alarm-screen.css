@@ -1,0 +1,15 @@
+.screen-frame--alarm {
+  border-color: rgb(239 68 68 / 70%);
+  box-shadow:
+    0 0 3rem rgb(239 68 68 / 26%),
+    inset 0 0 2rem rgb(239 68 68 / 12%);
+}
+
+.screen-frame--alarm h1 {
+  color: #ef4444;
+}
+
+.screen-frame--alarm .screen-frame__lead,
+.screen-frame--alarm .lock-display__label {
+  color: #fecaca;
+}
