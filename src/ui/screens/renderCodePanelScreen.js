@@ -10,6 +10,7 @@ export function renderCodePanelScreen({ enteredCode, remainingSeconds, onKeyPres
     text: formatCode(enteredCode),
   });
 
+  frame.classList.add('screen-frame--breathing');
   frame.append(createCountdownDisplay(remainingSeconds), display, createKeypad(onKeyPress));
   return frame;
 }
