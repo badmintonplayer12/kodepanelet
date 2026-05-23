@@ -9,6 +9,7 @@ export function createInitialState() {
     remainingSeconds: TIMER_CONFIG.durationSeconds,
     isTimerRunning: false,
     hasTimerStarted: false,
+    timerEndsAt: null,
   };
 }
 
