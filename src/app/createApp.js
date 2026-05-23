@@ -1,6 +1,7 @@
 import { playAlarmTone, playKeyTone, playResultTone, preloadAppSounds } from '../audio/soundPlayer.js';
 import { isCorrectCode } from '../core/codeValidator.js';
 import { createInstallPromptController } from '../pwa/installPrompt.js';
+import { shouldShowIosInstallHint } from '../pwa/installHint.js';
 import { createCountdownTimer } from '../timer/countdownTimer.js';
 import { TIMER_CONFIG, TIMER_START_MODES } from '../timer/timerConfig.js';
 import { createInitialState, withStatePatch } from './appState.js';
@@ -121,7 +122,10 @@ export function createApp(appRoot) {
   return {
     start() {
       preloadAppSounds();
-      updateTransientState({ canInstallApp: installPrompt.isInstallAvailable() });
+      updateTransientState({
+        canInstallApp: installPrompt.isInstallAvailable(),
+        showInstallHint: shouldShowIosInstallHint(),
+      });
       if (state.isTimerRunning) timer.start();
       renderApp(appRoot, state, actions);
     },
