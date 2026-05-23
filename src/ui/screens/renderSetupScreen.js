@@ -2,9 +2,10 @@ import { isCodeLengthAllowed } from '../../core/codeConfig.js';
 import { createElement } from '../dom.js';
 import { createFullscreenButton } from '../components/createFullscreenButton.js';
 import { createInstallButton } from '../components/createInstallButton.js';
+import { createInstallHint } from '../components/createInstallHint.js';
 import { createScreenFrame } from '../components/createScreenFrame.js';
 
-export function renderSetupScreen({ appRoot, canInstallApp, onCodeSet, onInstallApp }) {
+export function renderSetupScreen({ appRoot, canInstallApp, showInstallHint, onCodeSet, onInstallApp }) {
   const frame = createScreenFrame('Sikkerhetslås', 'Velg spillkoden før agentene starter.');
   const form = createElement('form', { className: 'setup-form' });
   const input = createElement('input', { className: 'setup-form__input' });
@@ -23,6 +24,7 @@ export function renderSetupScreen({ appRoot, canInstallApp, onCodeSet, onInstall
 
   form.append(input, button, createFullscreenButton(appRoot));
   if (canInstallApp) form.append(createInstallButton(onInstallApp));
+  if (showInstallHint) form.append(createInstallHint());
 
   frame.append(form);
   return frame;
