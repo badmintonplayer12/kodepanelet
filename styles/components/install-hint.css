@@ -1,0 +1,15 @@
+.install-hint {
+  color: rgb(247 247 251 / 72%);
+  font-size: clamp(0.82rem, 2.5vw, 0.95rem);
+  line-height: 1.45;
+  margin: 0;
+  max-width: 28rem;
+  text-align: center;
+}
+
+@media (orientation: landscape) and (max-height: 620px) {
+  .install-hint {
+    font-size: 0.78rem;
+    max-width: 42rem;
+  }
+}
