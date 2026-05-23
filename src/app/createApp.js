@@ -4,13 +4,14 @@ import { createCountdownTimer } from '../timer/countdownTimer.js';
 import { TIMER_CONFIG, TIMER_START_MODES } from '../timer/timerConfig.js';
 import { createInitialState, withStatePatch } from './appState.js';
 import { clearGameState, loadGameState, saveGameState } from './persistedGameState.js';
+import { restoreGameState } from './restoreGameState.js';
 import { renderApp } from '../ui/renderApp.js';
 import { SCREENS } from './screens.js';
 
 export function createApp(appRoot) {
-  let state = loadGameState() ?? createInitialState();
+  let state = restoreGameState(loadGameState());
   const timer = createCountdownTimer({
-    durationSeconds: TIMER_CONFIG.durationSeconds,
+    durationSeconds: state.remainingSeconds,
     onTick: handleTimerTick,
     onComplete: handleTimerComplete,
   });
@@ -99,6 +100,7 @@ export function createApp(appRoot) {
   return {
     start() {
       preloadAppSounds();
+      if (state.isTimerRunning) timer.start();
       renderApp(appRoot, state, actions);
     },
   };
