@@ -2,6 +2,7 @@ import { SCREENS } from '../app/screens.js';
 import { RESULT_TYPES } from '../core/resultTypes.js';
 import { createHiddenResetButton } from './components/createHiddenResetButton.js';
 import { clearElement } from './dom.js';
+import { renderAlarmScreen } from './screens/renderAlarmScreen.js';
 import { renderCodePanelScreen } from './screens/renderCodePanelScreen.js';
 import { renderResultScreen } from './screens/renderResultScreen.js';
 import { renderSetupScreen } from './screens/renderSetupScreen.js';
@@ -28,6 +29,10 @@ function createScreen(appRoot, state, actions) {
       remainingSeconds: state.remainingSeconds,
       onKeyPress: actions.pressKey,
     });
+  }
+
+  if (state.screen === SCREENS.alarm) {
+    return renderAlarmScreen();
   }
 
   const resultType = state.screen === SCREENS.success ? RESULT_TYPES.success : RESULT_TYPES.error;
