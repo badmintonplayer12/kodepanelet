@@ -46,14 +46,16 @@
 }
 
 .screen-frame--breathing::before {
-  animation: screen-frame-breathe 5.5s ease-in-out infinite;
+  animation: screen-frame-breathe 4.8s ease-in-out infinite;
+  border: 1px solid rgb(250 204 21 / 22%);
   border-radius: inherit;
   box-shadow:
-    0 0 1.6rem rgb(250 204 21 / 16%),
-    0 0 3rem rgb(239 68 68 / 10%);
+    0 0 1.9rem rgb(250 204 21 / 28%),
+    0 0 4.2rem rgb(239 68 68 / 18%),
+    inset 0 0 1.4rem rgb(250 204 21 / 10%);
   content: '';
-  inset: -1px;
-  opacity: 0.35;
+  inset: -2px;
+  opacity: 0.5;
   pointer-events: none;
   position: absolute;
 }
@@ -61,18 +63,18 @@
 @keyframes screen-frame-breathe {
   0%,
   100% {
-    opacity: 0.35;
+    opacity: 0.5;
   }
 
   50% {
-    opacity: 0.75;
+    opacity: 1;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .screen-frame--breathing::before {
     animation: none;
-    opacity: 0.45;
+    opacity: 0.65;
   }
 }
 
