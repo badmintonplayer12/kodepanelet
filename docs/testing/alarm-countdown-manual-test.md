@@ -1,6 +1,6 @@
 # Alarm Countdown Manual Test Checklist
 
-Use this checklist after changes to the alarm countdown, code panel, sounds, fullscreen behavior, or mobile layout.
+Use this checklist after changes to the alarm countdown, code panel, sounds, fullscreen behavior, refresh persistence, or mobile layout.
 
 The app should be tested on:
 
@@ -102,6 +102,86 @@ Expected result:
 
 Remember to set the timer back to 15 minutes after testing.
 
+## Refresh persistence
+
+Use a short temporary countdown, such as 30 seconds, while testing refresh behavior.
+
+### Refresh before timer starts
+
+1. Open the app.
+2. Set code `1234`.
+3. Confirm the code panel appears.
+4. Refresh the browser before pressing any keypad button.
+
+Expected result:
+
+- The app returns to the code panel, not setup.
+- The chosen code is still active.
+- The countdown is still at the configured duration.
+
+### Refresh during active countdown
+
+1. Reach the code panel.
+2. Press a keypad number to start the countdown.
+3. Wait about 10 seconds.
+4. Refresh the browser.
+
+Expected result:
+
+- The app returns to the active game.
+- The countdown does not reset to the full duration.
+- The remaining time is calculated from real elapsed time.
+- The countdown continues automatically.
+
+### Refresh on error screen
+
+1. Enter a wrong code.
+2. Confirm the error screen appears.
+3. Refresh the browser.
+
+Expected result:
+
+- The game is still active after refresh.
+- The chosen code is not cleared.
+- The timer is not reset by refresh.
+- The hidden reset button remains available.
+
+### Refresh on success screen
+
+1. Enter the correct code.
+2. Confirm the success screen appears.
+3. Refresh the browser.
+
+Expected result:
+
+- The app returns to the success screen.
+- The timer does not restart.
+- The hidden reset button remains available.
+
+### Refresh after alarm
+
+1. Let the countdown reach zero.
+2. Confirm the alarm screen appears.
+3. Refresh the browser.
+
+Expected result:
+
+- The app returns to the alarm screen.
+- The countdown does not restart.
+- The hidden reset button remains available.
+
+### Close and reopen during countdown
+
+1. Start the countdown.
+2. Close the browser tab or leave the app for at least 10 seconds.
+3. Reopen the app if possible.
+
+Expected result:
+
+- The countdown reflects real elapsed time.
+- The app does not give extra time.
+- If the timer expired while closed, the alarm screen appears.
+
 ## Hidden reset button
 
 Test the hidden top-right reset button from each screen:
@@ -118,6 +198,7 @@ Expected result:
 - The entered code is cleared.
 - The chosen correct code is cleared.
 - The timer resets to the configured duration.
+- Refresh after hidden reset stays on clean setup.
 
 ## Mobile portrait layout
 
@@ -167,4 +248,8 @@ The alarm countdown feature is acceptable when:
 - `alarm.mp3` plays once
 - success stops the timer
 - hidden reset works from all screens
+- refresh does not reset active games
+- refresh during countdown does not give extra time
+- refresh after timeout opens the alarm screen
+- refresh after success stays on the success screen
 - mobile portrait and landscape layouts use the screen well
