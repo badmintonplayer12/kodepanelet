@@ -1,7 +1,7 @@
 const STORAGE_KEY = 'kodepanelet.gameState.v1';
 
 export function saveGameState(state) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(toPersistedState(state)));
 }
 
 export function loadGameState() {
@@ -19,6 +19,18 @@ export function loadGameState() {
 
 export function clearGameState() {
   localStorage.removeItem(STORAGE_KEY);
+}
+
+function toPersistedState(state) {
+  return {
+    screen: state.screen,
+    correctCode: state.correctCode,
+    enteredCode: state.enteredCode,
+    remainingSeconds: state.remainingSeconds,
+    isTimerRunning: state.isTimerRunning,
+    hasTimerStarted: state.hasTimerStarted,
+    timerEndsAt: state.timerEndsAt,
+  };
 }
 
 function isValidSavedState(state) {
