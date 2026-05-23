@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kodepanelet-cache-v2';
+const CACHE_NAME = 'kodepanelet-cache-v3';
 
 const APP_SHELL_URLS = [
   './',
