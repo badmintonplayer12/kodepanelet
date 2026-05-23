@@ -12,6 +12,7 @@ export function createApp(appRoot) {
   let state = restoreGameState(loadGameState());
   const timer = createCountdownTimer({
     durationSeconds: state.remainingSeconds,
+    getRemainingSeconds: getClockBasedRemainingSeconds,
     onTick: handleTimerTick,
     onComplete: handleTimerComplete,
   });
@@ -86,6 +87,11 @@ export function createApp(appRoot) {
       hasTimerStarted: false,
       timerEndsAt: null,
     });
+  }
+
+  function getClockBasedRemainingSeconds() {
+    if (!state.timerEndsAt) return state.remainingSeconds;
+    return Math.ceil((state.timerEndsAt - Date.now()) / 1000);
   }
 
   function handleTimerTick(remainingSeconds) {
