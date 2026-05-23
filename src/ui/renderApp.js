@@ -23,6 +23,7 @@ function createScreen(appRoot, state, actions) {
     return renderSetupScreen({
       appRoot,
       canInstallApp: state.canInstallApp,
+      showInstallHint: state.showInstallHint,
       onCodeSet: actions.setCode,
       onInstallApp: actions.installApp,
     });
