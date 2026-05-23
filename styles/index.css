@@ -4,6 +4,7 @@
 @import './components/alarm-screen.css';
 @import './components/buttons.css';
 @import './components/countdown-display.css';
+@import './components/install-hint.css';
 @import './components/keypad.css';
 @import './components/lock-display.css';
 @import './components/screen-frame.css';
