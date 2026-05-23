@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kodepanelet-cache-v1';
+const CACHE_NAME = 'kodepanelet-cache-v2';
 
 const APP_SHELL_URLS = [
   './',
@@ -11,6 +11,7 @@ const APP_SHELL_URLS = [
   './styles/components/alarm-screen.css',
   './styles/components/buttons.css',
   './styles/components/countdown-display.css',
+  './styles/components/install-hint.css',
   './styles/components/keypad.css',
   './styles/components/lock-display.css',
   './styles/components/screen-frame.css',
@@ -24,6 +25,9 @@ const APP_SHELL_URLS = [
   './src/core/codeValidator.js',
   './src/core/codeConfig.js',
   './src/core/resultTypes.js',
+  './src/pwa/installHint.js',
+  './src/pwa/installPrompt.js',
+  './src/pwa/registerServiceWorker.js',
   './src/timer/countdownTimer.js',
   './src/timer/formatTime.js',
   './src/timer/timerConfig.js',
@@ -31,6 +35,8 @@ const APP_SHELL_URLS = [
   './src/ui/renderApp.js',
   './src/ui/components/createCountdownDisplay.js',
   './src/ui/components/createHiddenResetButton.js',
+  './src/ui/components/createInstallButton.js',
+  './src/ui/components/createInstallHint.js',
   './src/ui/components/createKeypad.js',
   './src/ui/components/createLockDisplay.js',
   './src/ui/components/createScreenFrame.js',
