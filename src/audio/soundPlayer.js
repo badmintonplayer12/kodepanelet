@@ -28,6 +28,12 @@ export function playResultTone(resultType) {
   playSoundFile(filePath).catch(() => playFallbackTone(fallbackFrequency, 0.25));
 }
 
+export function stopAllSounds() {
+  for (const audio of soundCache.values()) {
+    stopSound(audio);
+  }
+}
+
 function preloadSound(filePath) {
   const audio = getCachedAudio(filePath);
   audio.load();
@@ -37,6 +43,15 @@ function playSoundFile(filePath) {
   const audio = getCachedAudio(filePath);
   audio.currentTime = 0;
   return audio.play();
+}
+
+function stopSound(audio) {
+  try {
+    audio.pause();
+    audio.currentTime = 0;
+  } catch {
+    // Reset should never fail the hidden game reset flow.
+  }
 }
 
 function getCachedAudio(filePath) {
