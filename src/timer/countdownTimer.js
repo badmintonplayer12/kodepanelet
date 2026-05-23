@@ -1,10 +1,11 @@
-export function createCountdownTimer({ durationSeconds, onTick, onComplete }) {
+export function createCountdownTimer({ durationSeconds, onTick, onComplete, getRemainingSeconds }) {
   let remainingSeconds = durationSeconds;
   let intervalId = null;
 
   function start() {
     if (intervalId) return;
-    onTick(remainingSeconds);
+    tick();
+    if (remainingSeconds === 0) return;
     intervalId = window.setInterval(tick, 1000);
   }
 
@@ -21,13 +22,21 @@ export function createCountdownTimer({ durationSeconds, onTick, onComplete }) {
   }
 
   function tick() {
-    remainingSeconds = Math.max(0, remainingSeconds - 1);
+    remainingSeconds = readRemainingSeconds();
     onTick(remainingSeconds);
 
     if (remainingSeconds === 0) {
       stop();
       onComplete();
     }
+  }
+
+  function readRemainingSeconds() {
+    if (getRemainingSeconds) {
+      return Math.max(0, getRemainingSeconds());
+    }
+
+    return Math.max(0, remainingSeconds - 1);
   }
 
   return {
