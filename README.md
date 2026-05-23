@@ -49,6 +49,10 @@ src/
     codeConfig.js
     resultTypes.js
 
+  timer/
+    timerConfig.js
+    formatTime.js
+
   ui/
     dom.js
     renderApp.js
@@ -103,6 +107,7 @@ setup -> code-panel -> success
 Mappene har tydelige roller:
 
 - `src/core/` inneholder ren spill-logikk, for eksempel kodevalidering.
+- `src/timer/` inneholder ren timer-konfigurasjon og tidsformatering.
 - `src/ui/` inneholder DOM-rendering og visuelle komponenter.
 - `src/audio/` håndterer lyder.
 - `src/app/` binder sammen state, UI, regler og lyd.
