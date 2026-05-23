@@ -1,4 +1,4 @@
-import { playKeyTone, playResultTone, preloadResultSounds } from '../audio/soundPlayer.js';
+import { playAlarmTone, playKeyTone, playResultTone, preloadAppSounds } from '../audio/soundPlayer.js';
 import { isCorrectCode } from '../core/codeValidator.js';
 import { createCountdownTimer } from '../timer/countdownTimer.js';
 import { TIMER_CONFIG, TIMER_START_MODES } from '../timer/timerConfig.js';
@@ -84,12 +84,13 @@ export function createApp(appRoot) {
   }
 
   function handleTimerComplete() {
+    playAlarmTone();
     update({ screen: SCREENS.alarm, isTimerRunning: false });
   }
 
   return {
     start() {
-      preloadResultSounds();
+      preloadAppSounds();
       renderApp(appRoot, state, actions);
     },
   };
