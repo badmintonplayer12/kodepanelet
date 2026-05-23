@@ -69,7 +69,11 @@ export function createApp(appRoot) {
   }
 
   function startTimer() {
-    update({ hasTimerStarted: true, isTimerRunning: true });
+    update({
+      hasTimerStarted: true,
+      isTimerRunning: true,
+      timerEndsAt: Date.now() + state.remainingSeconds * 1000,
+    });
     timer.start();
   }
 
