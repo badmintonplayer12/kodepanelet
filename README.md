@@ -42,6 +42,7 @@ src/
   app/
     createApp.js
     appState.js
+    persistedGameState.js
     screens.js
 
   core/
@@ -111,7 +112,7 @@ Mappene har tydelige roller:
 - `src/timer/` inneholder ren timer-konfigurasjon, nedtelling og tidsformatering.
 - `src/ui/` inneholder DOM-rendering og visuelle komponenter.
 - `src/audio/` håndterer lyder.
-- `src/app/` binder sammen state, UI, regler og lyd.
+- `src/app/` binder sammen state, UI, regler, lyd og lokal spill-lagring.
 - `src/main.js` starter appen, men skal ikke inneholde mye logikk.
 - `styles/` deles opp i base, layout, theme og komponent-CSS.
 
