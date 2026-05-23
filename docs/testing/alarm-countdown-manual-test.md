@@ -200,6 +200,25 @@ Expected result:
 - The timer resets to the configured duration.
 - Refresh after hidden reset stays on clean setup.
 
+### Hidden reset audio stop
+
+1. Trigger the wrong-code sound.
+2. Tap the hidden reset area while the sound is playing.
+3. Confirm the sound stops and setup appears.
+4. Trigger the success sound.
+5. Tap the hidden reset area while the sound is playing.
+6. Confirm the sound stops and setup appears.
+7. Trigger the alarm sound.
+8. Tap the hidden reset area while the alarm is playing.
+
+Expected result:
+
+- Wrong-code audio stops immediately on hidden reset.
+- Success audio stops immediately on hidden reset.
+- Alarm audio stops immediately on hidden reset.
+- Setup screen appears after hidden reset.
+- Refresh after hidden reset stays on clean setup.
+
 ## Mobile portrait layout
 
 1. Open the app on a phone in portrait mode.
@@ -248,6 +267,7 @@ The alarm countdown feature is acceptable when:
 - `alarm.mp3` plays once
 - success stops the timer
 - hidden reset works from all screens
+- hidden reset stops wrong-code, success, and alarm audio
 - refresh does not reset active games
 - refresh during countdown does not give extra time
 - refresh after timeout opens the alarm screen
